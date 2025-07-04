@@ -147,7 +147,9 @@ for c in df_test.columns:
 n_features = len([c for c in df_train.columns if 's' in c]) #plus one for time
 window = 20
 print(f'number of features: {n_features}, window size: {window}')
-np.random.seed(5)
+import random, time
+current_time = time.time()
+random.seed(current_time)
 units = np.arange(1,101)
 train_units = list(np.random.choice(units, 80, replace = False))
 val_units = list(set(units) - set(train_units))
